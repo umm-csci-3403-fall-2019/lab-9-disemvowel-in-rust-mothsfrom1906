@@ -2,9 +2,30 @@ fn main() {
     println!("Hello, world!");
     let s = String::from("Hello, world");
     let s_disemvowel = disemvowel(&s);
-
     println!("s was '{}', and without vowels is '{}'.", s, s_disemvowel);
 }
+
+fn disemvowel(stg: &str) -> String {
+    let vowels = String::from("aeiouAEIOU");
+    let mut consts = vec![];
+    for c in stg.chars() {
+	let mut is_vowel = false;
+	for v in vowels.chars() {
+	    if c==v {
+	    is_vowel = true;
+	    }
+	}
+	if !is_vowel {
+	consts.push(c);
+	}
+    }
+    let mut con_str = String::new();
+    for nv in consts {
+	con_str.push(nv);
+    }
+    con_str
+}
+	    
 
 // Everything from here down is Rust test code. You shouldn't need to 
 // change any of this. 
